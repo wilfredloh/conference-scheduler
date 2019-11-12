@@ -1,19 +1,10 @@
-console.log('index.js is running!')
-const input = require('./src/input.js')
+let input = require('./src/input.js')
+const readline = require('readline');
 const ConferenceManager = require('./src/exec/ConferenceManager')
 
 ////////////////////////////////////
-//        INITIALIZE PROGRAM
+//        TERMINAL OUTPUT         
 ///////////////////////////////////
-
-let manager = new ConferenceManager(input)
-let conf = manager.schedule(manager.parseStringData())
-
-////////////////////////////////////
-//        TERMINAL SECTION         
-///////////////////////////////////
-
-const readline = require('readline');
 
 async function showOptions () {
     function askQuestion(query) {
@@ -54,4 +45,10 @@ async function showOptions () {
     }
 }
 
+////////////////////////////////////
+//        INITIALIZE PROGRAM
+///////////////////////////////////
+
+let manager = new ConferenceManager(input)
+let conf = manager.schedule(manager.parseStringData())
 showOptions();

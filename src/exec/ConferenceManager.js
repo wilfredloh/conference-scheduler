@@ -20,25 +20,24 @@ class ConferenceManager {
         let binStore = new BinPacker(talks)
         
         // create and sort talks using firstFit function
-        let bins = binStore.firstFit()
+        let sessions = binStore.firstFit()
         
         // for every 2 binStore, create a new track
-        for (let i=0; i<bins.length; i+=2) {
+        for (let i=0; i<sessions.length; i+=2) {
             let track = new Track()
-            track.addSession(bins[i])
-            track.addSession(bins[i+1])
+            track.addSession(sessions[i])
+            track.addSession(sessions[i+1])
             conference.addTrack(track)
         }
         return conference
     }
-
 
     // shows all conference details (time/day/title)
     showConference (conf) {
         
         // loop through all tracks of the conference
         conf.tracks.forEach((tracks, i) => {
-            console.log('DAY: ', i+1)
+            tracks.getCurrentDay(i+1)
 
         // loop through all sessions of a track
             tracks.session.forEach( (sessions,i) => {
@@ -48,12 +47,12 @@ class ConferenceManager {
                 sessions.talks.forEach(talks => {
                     sessions.getTalkTime(talks.title)
                     sessions.addTime(talks.duration)
-                });
+                })
 
                 // if session = 2 (afternoon session) set talk to be networking session
                 if (i === 1) sessions.getTalkTime('Networking')
-            });
-        });
+            })
+        })
     }
 
     // parses input data from user

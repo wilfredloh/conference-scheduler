@@ -1,39 +1,29 @@
-Things to do
+# Technologies Used
+- Node.js, Jest.js
 
-<!-- 1. Change session class to inheritance (reduce code) -->
-2. Make all functions more oop (getX, addY)
-3. Set up testing
-4. Clean up code (no console.logs)
-5. Readme with documentation to install program
+# Features
+- User provides a list of talks and time (duration)
+- The program splits each talk based on the min 
+- The program shows to the user the sorted schedule (uses BinPacking algorithm)
+- This schedule maximizes talks from earlier days until it cannot do so anymore then, it creates a new day for an event
 
-- user can add new input
-- user can use different algo
+# Structure
+- Index.js: The program runs in the terminal and user has to key in input to see results
+- Exec folder: Contains classes to sort schedule and hold/run the conference
+- Model folder: Contains all classes/subclasses that make up a conference
+- Test folder: Contains test function and runs tests
 
+# Installation
+1. Install dependencies
+``` 
+npm install
+```
+2. Run program
+```
+node index
+```
+3. Run test
+```
+npm test / npm run test
+```
 
-/*
-@ Main x1
-@ Conference x1
-    Properties
-        CurrentTrack
-        Currentsession
-    startSort
-    Check session
-    Checktrack
-@ Track (day1 / day2) x1
-@ Session (morn/aft/lunch/network) x5
-    Properties
-        New Talk
-        Start time
-    Check talk
-    Place talk in session
-@ Talk (scheduled talk / event / break) x4
-    Properties
-        Id
-        Title
-        Duration
-    getID
-    GetTitle
-    Get druation
-@ Binpacker class
-    Bin class
-*/

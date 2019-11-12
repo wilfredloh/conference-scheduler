@@ -3,7 +3,7 @@
 class Session {
   
     addHour() {
-        this.startTime.hr = this.startTime.hr + 1
+        this.startTime.hr += 1
     }
 
     addTime(inputMin) {
@@ -13,8 +13,8 @@ class Session {
 
     checkHourIncrease (time) {
         if (time.min >= 60) {
-            time.hr = time.hr + 1
-            time.min = time.min - 60
+            time.hr += 1
+            time.min -= 60
         }
     }
 

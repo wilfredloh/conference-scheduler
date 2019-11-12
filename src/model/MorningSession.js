@@ -8,7 +8,7 @@ const Session = require('./Session')
 class MorningSession extends Session {
     constructor(slot) {
         super()
-        this.slot = slot;
+        this.slot = slot
         this.talks = []
         this.startTime = {
             hr: 9,
