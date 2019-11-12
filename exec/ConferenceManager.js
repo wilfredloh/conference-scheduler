@@ -1,3 +1,5 @@
+// The ConferenceManager class creates a class instance that manages / stores all tracks and schedules / displays conference news based on specified functions.
+
 const BinPacker = require('./BinPacker')
 const Conference = require('../model/Conference')
 const Talk = require('../model/Talk')
@@ -9,6 +11,8 @@ class ConferenceManager {
         this.conference = []
     }
 
+    // create a new conference and sort tracks accordingly
+    // stores all data in a Conference instance
     schedule (talks) {
         let conference = new Conference()
 
@@ -21,13 +25,15 @@ class ConferenceManager {
         // for every 2 binStore, create a new track
         for (let i=0; i<bins.length; i+=2) {
             let track = new Track()
-            track.session.push(bins[i])
-            track.session.push(bins[i+1])
+            track.addSession(bins[i])
+            track.addSession(bins[i+1])
             conference.addTrack(track)
         }
         return conference
     }
 
+
+    // shows all conference details (time/day/title)
     showConference (conf) {
         
         // loop through all tracks of the conference
@@ -50,6 +56,7 @@ class ConferenceManager {
         });
     }
 
+    // parses input data from user
     parseStringData () {
         let input = this.input.match(/[^\r\n]+/g)
         let id = 0

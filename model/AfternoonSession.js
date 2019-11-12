@@ -1,7 +1,13 @@
-// A Session class represents one session within a Track and comprises of 1 or more Talks.
+// An Afternoon session subclass represents a class that inherits its methods from the Session superclass
 
-class AfternoonSession {
+// Comes from   : A Track 
+// Comprises of : 1 or more Talks
+
+const Session = require('./Session')
+
+class AfternoonSession extends Session{
     constructor(slot) {
+        super()
         this.slot = slot;
         this.talks = []
         this.startTime = {
@@ -10,34 +16,6 @@ class AfternoonSession {
             ampm: "PM"
         }
     }
-
-    addTime(inputMin) {
-        this.startTime.min = this.startTime.min + inputMin
-        checkHourIncrease(this.startTime)
-    }
-
-    getTalkTime(talkTitle) {
-        let time = this.startTime
-        console.log(`${formatTime(time.hr)}:${formatTime(time.min)} ${time.ampm} ${talkTitle}`)
-        if (talkTitle === 'Lunch Break') this.addLunch()
-    }
-
-    addLunch() {
-        this.startTime.hr = this.startTime.hr + 1
-    }
 }
 
 module.exports = AfternoonSession
-
-
-let checkHourIncrease = (time) => {
-    if (time.min >= 60) {
-        time.hr = time.hr + 1
-        time.min = time.min - 60
-    }
-}
-
-let formatTime = (time) => {
-    if (time < 10) time = '0' + time
-    return time
-}

@@ -1,3 +1,5 @@
+// The BinPacker class creates a BinPacker instance that stores all talks upon creation and returns a sorted list of talks upon calling the firstFit function
+
 const AfternoonSession = require('../model/AfternoonSession')
 const MorningSession = require('../model/MorningSession')
 
@@ -30,8 +32,7 @@ class BinPacker {
         let talks = this.talks.sort((a,b) => b.duration - a.duration)
 
         for (let i = 0; i < talks.length; i++) { 
-            // Find the first bin that can accommodate 
-            // weight[i] 
+            // Find the first bin that can accommodate weight[i] 
             let j; 
             for (j = 0; j < this.bins; j++) { 
                 if (binHolder[j].slot >= talks[i].duration) { 
