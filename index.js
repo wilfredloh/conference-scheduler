@@ -36,7 +36,6 @@ const ConferenceManager = require('./exec/ConferenceManager')
 
 let manager = new ConferenceManager(input)
 let conf = manager.schedule(manager.parseStringData())
-// manager.showConference(conf)
 
 ////////////////////////////////////
 //      TERMINAL SECTION         
@@ -58,14 +57,6 @@ async function showOptions () {
         }))
     }
     
-//     const ans = await askQuestion(`
-// -----------------------------
-// What would you like to do?
-// 1. Show given input
-// 2. Run Schedule Manager
-// 3. End program
-// -----------------------------
-// `);
     const ans = await askQuestion(
         "-----------------------------\n" +
         "What would you like to do?\n\n" +  
@@ -93,27 +84,6 @@ async function showOptions () {
 }
 
 showOptions();
-
-// let showOptions = () => {
-//     console.log(`What would you like to do? \n\n1. Run Schedule Manager\n2. See sorted schedule \n`);
-// }
-// let input1 = parseInt(process.argv[2])
-// // let programIsRunning = true
-// // while (programIsRunning) {
-//     switch(input1) {
-//         case 1:
-//             console.log('input here!')
-//             manager.showConference(conf)
-//             break;
-//         case 2:
-//             // console.log('schedule here!')
-//             break;
-//         default:
-//             showOptions();
-//             break;
-//     }
-// }
-
 
 //////////////////
 // END

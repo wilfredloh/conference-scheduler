@@ -1,23 +1,27 @@
-const Session = require('../model/Session')
+const AfternoonSession = require('../model/AfternoonSession')
+const MorningSession = require('../model/MorningSession')
 
 class BinPacker {
     constructor(talks) {
         this.bins = 0
         this.talks = talks
         this.slotIndex = 0
+        this.slot = [180,240]
     }
 
     createSession() {
-        let slot = [180, 240]
-        let current = this.slotIndex % 2 === 0 ? slot[0] : slot[1]
+        let session;
+        if (this.slotIndex % 2 === 0) {
+            session = new MorningSession(this.slot[0])
+        } else {
+            session = new AfternoonSession(this.slot[1])
+        }
         this.slotIndex++
-        let session = new Session(current)
         return session        
     }
 
     firstFit() { 
     // Initialize result (Count of bins) 
-        // int res = 0; 
         // Create an array to store remaining space in bins 
         // there can be at most n bins 
         let binHolder = [];
