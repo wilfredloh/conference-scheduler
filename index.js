@@ -1,48 +1,19 @@
 console.log('index.js is running!')
-const input = require('./test.js')
-const ConferenceManager = require('./exec/ConferenceManager')
+const input = require('./src/input.js')
+const ConferenceManager = require('./src/exec/ConferenceManager')
 
 ////////////////////////////////////
-//              INTRO
+//        INITIALIZE PROGRAM
 ///////////////////////////////////
-
-/*
-@ Main x1
-@ Conference x1
-    Properties
-        CurrentTrack
-        Currentsession
-    startSort
-    Check session
-    Checktrack
-@ Track (day1 / day2) x1
-@ Session (morn/aft/lunch/network) x5
-    Properties
-        New Talk
-        Start time
-    Check talk
-    Place talk in session
-@ Talk (scheduled talk / event / break) x4
-    Properties
-        Id
-        Title
-        Duration
-    getID
-    GetTitle
-    Get druation
-@ Binpacker class
-    Bin class
-*/
 
 let manager = new ConferenceManager(input)
 let conf = manager.schedule(manager.parseStringData())
 
 ////////////////////////////////////
-//      TERMINAL SECTION         
+//        TERMINAL SECTION         
 ///////////////////////////////////
 
 const readline = require('readline');
-
 
 async function showOptions () {
     function askQuestion(query) {
@@ -84,7 +55,3 @@ async function showOptions () {
 }
 
 showOptions();
-
-//////////////////
-// END
-/////////////////

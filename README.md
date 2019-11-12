@@ -8,3 +8,32 @@ Things to do
 
 - user can add new input
 - user can use different algo
+
+
+/*
+@ Main x1
+@ Conference x1
+    Properties
+        CurrentTrack
+        Currentsession
+    startSort
+    Check session
+    Checktrack
+@ Track (day1 / day2) x1
+@ Session (morn/aft/lunch/network) x5
+    Properties
+        New Talk
+        Start time
+    Check talk
+    Place talk in session
+@ Talk (scheduled talk / event / break) x4
+    Properties
+        Id
+        Title
+        Duration
+    getID
+    GetTitle
+    Get druation
+@ Binpacker class
+    Bin class
+*/

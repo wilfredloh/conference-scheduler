@@ -3,7 +3,6 @@
 class Track {
     constructor(talks) {
         this.session = []
-
     }
 
     addSession(bin) {
