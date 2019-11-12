@@ -1,4 +1,5 @@
 // A Track class represents one full day / track within a conference and comprises of 1 or more Sessions.
+const AfternoonSession = require('./AfternoonSession')
 
 class Track {
     constructor() {
@@ -7,7 +8,7 @@ class Track {
     }
 
     addSession(bin) {
-        this.session.push(bin)
+        bin ? this.session.push(bin) : this.session.push(new AfternoonSession(240))
     }
 
     getCurrentDay(day) {

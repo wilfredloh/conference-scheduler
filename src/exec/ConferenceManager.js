@@ -41,16 +41,15 @@ class ConferenceManager {
 
         // loop through all sessions of a track
             tracks.session.forEach( (sessions,i) => {
-
                 // if session = 2 (afternoon session) set talk to be lunch break
-                if (i === 1) sessions.getTalkTime('Lunch Break')
+                if (i === 1) sessions.getLunchTime()
                 sessions.talks.forEach(talks => {
                     sessions.getTalkTime(talks.title)
                     sessions.addTime(talks.duration)
                 })
 
                 // if session = 2 (afternoon session) set talk to be networking session
-                if (i === 1) sessions.getTalkTime('Networking')
+                if (i === 1) sessions.getNetworkTime()
             })
         })
     }
